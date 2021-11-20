@@ -3,12 +3,13 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 from PyQt5 import uic
 from random import *
+from UI import Ui_MainWindow
 
 
-class Example(QMainWindow):
+class Example(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        uic.loadUi("UI.ui", self)
+        self.setUpUi(self)
         self.setGeometry(300, 300, 800, 600)
         self.setWindowTitle('Рисование')
         self.pushButton.clicked.connect(self.paint)
