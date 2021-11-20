@@ -9,7 +9,7 @@ from UI import Ui_MainWindow
 class Example(QMainWindow, Ui_MainWindow):
     def __init__(self):
         super().__init__()
-        self.setUpUi(self)
+        self.setupUi(self)
         self.setGeometry(300, 300, 800, 600)
         self.setWindowTitle('Рисование')
         self.pushButton.clicked.connect(self.paint)
@@ -27,9 +27,10 @@ class Example(QMainWindow, Ui_MainWindow):
             qp.end()
 
     def draw(self, qp):
-        qp.setBrush(QColor(227, 227, 113))
+        r, g, b = randint(0, 255), randint(0, 255), randint(0, 255)
+        qp.setBrush(QColor(r, g, b))
         r = randint(10, 200)
-        x = randint(100, 200)
+        x = randint(100, 450)
         y = randint(100, 200)
         qp.drawEllipse(x, y, r * 2, r * 2)
 
